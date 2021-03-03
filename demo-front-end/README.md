@@ -13,8 +13,6 @@ Run `npm install -g @angular/cli` if you don't have Angular installed.
 
 Clone the repository and go the project directory.
 
-Run `npm install` to install the dependencies.
-
 ## Build and run
 
 Run `ng serve --port 8081` to start the client server.
