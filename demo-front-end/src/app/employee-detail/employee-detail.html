@@ -1,0 +1,10 @@
+<p-card [style]="{width: '360px'}" styleClass="ui-card-shadow mb-3">
+  <div>{{employee.username}} {{employee.email}}</div>
+  <div>Rank: {{employee.age}}</div>
+  <div>{{employee.designation}}</div>
+  <p-footer>
+      <button pButton type="button" label="Edit" icon="pi pi-check" class="mr-2" (click)="editEmployee()"></button>
+      <button pButton type="button" label="Delete" icon="pi pi-times" class="ui-button-secondary mr-2" (click)="deleteEmployee()" ></button>
+      <button pButton type="button" label="Assign" icon="pi pi-times" class="ui-button-warning mr-2" (click)="assignReview()"></button>
+  </p-footer>
+</p-card>

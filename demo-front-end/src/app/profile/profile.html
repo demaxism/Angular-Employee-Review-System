@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    <h5><strong>{{ currentUser.username }}</strong></h5>
+  </div>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">Full name: {{ currentUser.email }}</h6>
+    <strong>Roles:</strong>
+    <ul>
+      <li *ngFor="let role of currentUser.roles">
+        {{ role }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<br/>
+<br/>
+
+<p-panel header="Review assignments">
+  <div *ngFor='let review of reviewList'>
+    <div class="card mb-2">
+      <div class="card-header">
+        Review for <strong>{{review.to_user}}</strong>
+      </div>
+      <div class="card-body ">
+        <p class="card-text">{{review.content}}</p>
+      </div>
+      <div class="card-footer bg-light" *ngIf="review.content == null">
+        <button pButton type="button" label="Review" icon="pi pi-times" class="ui-button-primary2" (click)="reviewForm(review.to_user)"></button>
+      </div>
+    </div>
+  </div>
+</p-panel>

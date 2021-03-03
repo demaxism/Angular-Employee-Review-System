@@ -1,0 +1,41 @@
+<p-panel header="Add new employee">
+
+<span class="form-group">
+    <label for="float-input">User name</label>
+    <input id="float-input" type="text" [(ngModel)]="username" size="30" class="form-control" pInputText required >
+</span>
+
+<span class="form-group">
+    <label for="float-input">Full name</label>
+    <input id="float-input" type="text" [(ngModel)]="email" size="30" class="form-control" pInputText required> 
+</span>
+
+<span class="form-group">
+    <label for="password">Password</label>
+    <input id="float-input"
+        type="password"
+        [(ngModel)]="password"
+        pInputText required
+        size="30" class="form-control"
+    />
+</span>
+
+
+<span class="form-group">
+    <label for="float-input">Rank</label>
+    <input id="float-input" type="text" size="30" [(ngModel)]="age" class="form-control" pInputText required> 
+</span>
+
+<span class="form-group">
+    <label for="float-input">Designation</label>
+    <input id="float-input" type="text" size="30" [(ngModel)]="designation" class="form-control" pInputText required> 
+</span>
+<p-footer>
+    <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em" (click)="saveEmployee()"></button>
+    <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary" (click)="cancelEmployee()"></button>
+</p-footer>
+<div class="alert alert-warning" *ngIf="isSignUpFailed">
+    Signup failed!<br />{{ errorMessage }}
+  </div>
+</p-panel>
+  

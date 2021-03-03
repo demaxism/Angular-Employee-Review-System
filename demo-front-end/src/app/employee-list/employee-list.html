@@ -1,0 +1,13 @@
+
+<button pButton type="button" label="Add New Employee" style="margin-right: .25em" (click)="addEmployee()"></button>
+<br/><br/>
+<p-panel header="Employee Management System">
+  <div *ngFor='let employee of filteredList'>
+      <app-employeedetail [employee]='employee' (refreshEmployeeList)="refreshList()">
+        </app-employeedetail>
+  </div>
+
+  <div class="alert alert-warning" *ngIf="isListFailed">
+    Listing failed!<br />{{ errorMessage }}
+  </div>
+</p-panel>

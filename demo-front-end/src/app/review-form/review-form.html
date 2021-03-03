@@ -1,0 +1,12 @@
+<p-panel header="Review form">
+  <span class="form-group">
+    <label for="float-input">Put your review for <strong> {{reviewee}} </strong></label>
+    <input id="float-input" type="text" [(ngModel)]="reviewContent" class="form-control" pInputText required >
+    <button pButton type="button" label="Submit" icon="pi pi-check" class="m-3" (click)="submitReview()"></button>
+    <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary" (click)="cancelReview()"></button>
+  </span>
+
+  <div class="alert alert-warning" *ngIf="isReviewSubmitFailed">
+    Review assign failed!<br />{{ errorMessage }}
+  </div>
+</p-panel>
