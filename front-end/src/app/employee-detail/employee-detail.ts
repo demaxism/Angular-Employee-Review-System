@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { EmployeeService } from '../services/employee-service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Employee } from '../entity/Employee';
@@ -17,7 +16,7 @@ export class EmployeeDetail {
   @Output() refreshEmployeeList: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   // Service injected in constructor
-  constructor(private employeeService: EmployeeService, private authService: AuthService, private router: Router) { 
+  constructor(private authService: AuthService, private router: Router) { 
   }
 
   // Method to edit employee details

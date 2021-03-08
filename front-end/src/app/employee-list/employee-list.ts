@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../services/employee-service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Employee } from '../entity/Employee';
@@ -17,7 +16,7 @@ export class EmployeeList implements OnInit {
   errorMessage = '';
 
   // Service injected in constructor
-  constructor(private employeeService:EmployeeService, private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   // Gets filter by value from the search box
   get listFilterBy(): string {

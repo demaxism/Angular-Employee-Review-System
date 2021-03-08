@@ -3,7 +3,7 @@
     <div class="card mb-2">
       <div class="card-body">
         <h5 class="card-title">Review</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{review.to_user}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{review.to_user}} - {{review.to_fullname}}</h6>
         <p class="card-text">{{review.content}}</p>
         <!-- <a href="#" class="card-link">Delete</a> -->
       </div>
@@ -15,8 +15,11 @@
   </h5>
 
   <span class="form-group">
-    <label for="float-input">Reviewee (enter a user name)</label>
-    <input [(ngModel)]="review.user_to" class="form-control" >
+    <label for="float-input" class="form-check-label mr-3">Reviewee</label>
+    <!-- <input [(ngModel)]="review.user_to" class="form-control" > -->
+    <select class="form-select" [(ngModel)]="review.user_to">
+      <option *ngFor="let e of employeeList" [value]="e.username">{{e.username}}</option>
+    </select>
     <button pButton type="button" label="Assign" icon="pi pi-check" class="m-3" (click)="assignReview()"></button>
     <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary" (click)="cancelAssign()"></button>
   </span>

@@ -13,6 +13,7 @@ export class ReviewAssign implements OnInit {
   reviewee: string;
   review:any = { user_to:null };
   reviewList: any[];
+  employeeList: any[];
   isReviewAssignFailed = false;
   errorMessage = '';
 
@@ -26,7 +27,7 @@ export class ReviewAssign implements OnInit {
     this.authService.getUser(id).subscribe(
       data => {
         this.employee = new Employee(data.user._id, data.user.username, data.user.email, 0, "");
-        this.showReviewList();
+        this.fetchEmployeeList();
       },
       err => {
       }
@@ -37,7 +38,14 @@ export class ReviewAssign implements OnInit {
     this.reviewList = [];
     this.authService.assignList(this.employee.username).subscribe(
       data => {
-        this.reviewList = data.reviews;
+        for (let r of data.reviews) {
+          let matched = this.employeeList.find(obj => {
+            return obj.username === r.to_user
+          })
+          if (matched != undefined) {
+            this.reviewList.push({to_user:r.to_user, to_fullname: matched.email});
+          }
+        }
       },
       err => {
 
@@ -45,7 +53,26 @@ export class ReviewAssign implements OnInit {
     )
   }
 
+  fetchEmployeeList() {
+    this.authService.listUsers().subscribe(
+      data => {
+        this.employeeList = [];
+        for (let user of data.users) {
+          this.employeeList.push(new Employee(user._id, user.username, user.email, user.age, user.disc));
+        }
+        this.showReviewList();
+      },
+      err => {
+      }
+    );
+  }
+
   assignReview() {
+    if (this.review.user_to == undefined) {
+      this.errorMessage = "Reviewee not selected";
+      this.isReviewAssignFailed = true;
+      return;
+    }
     this.authService.assignReview(this.employee.username, this.review.user_to).subscribe(
       data => {
         console.log(data);

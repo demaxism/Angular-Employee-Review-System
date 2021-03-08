@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EmployeeService } from '../services/employee-service';
 import { Router } from '@angular/router';
 import { Employee } from '../entity/Employee';
 import { AuthService } from '../services/auth.service';
@@ -20,7 +19,7 @@ export class AddEmployee {
   errorMessage = '';
 
   // Services injected in constructor
-  constructor(private employeeService: EmployeeService,
+  constructor(
     private authService:AuthService,
     private router: Router) { 
   }

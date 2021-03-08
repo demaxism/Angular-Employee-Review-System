@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../entity/Employee';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { EmployeeService } from '../services/employee-service';
 import { Router } from '@angular/router/';
 
 @Component({
@@ -14,7 +13,7 @@ export class EditEmployee implements OnInit {
   employee: Employee;
 
   // Services injected in constructor
-  constructor(private employeeService: EmployeeService, private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   // Initializes variables
   ngOnInit() {
