@@ -1,4 +1,4 @@
-# Full Stack Developer Challenge
+# Employee review system built with Angular
 This demo is composed by a front-end client and a back-end server.
 
 ## Finished scope
